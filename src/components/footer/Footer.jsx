@@ -1,5 +1,6 @@
 import React from "react";
 import { RiSendPlane2Fill } from "react-icons/ri";
+import '../../App.css'
 
 const Footer = () => {
   return (
@@ -18,14 +19,14 @@ const Footer = () => {
         <div className=" flex flex-col gap-5">
           <div className=" text-md font-semibold">Subscribe</div>
 
-          <div className=" flex relative ">
+          <div className=" flex relative items-center ">
             <input
               type="email"
               placeholder="name@email.com"
               className=" outline-none min-w-[300px] h-[55px] border border-gray-400 rounded-lg p-5 focus:border-[#5142FC]"
             />
-            <button className=" bg-[#5142FC] rounded-r-md absolute right-0 p-3 ">
-              <RiSendPlane2Fill size="30" color="white"/>
+            <button >
+              <RiSendPlane2Fill size="53" color="white" className=" bg-[#5142FC] rounded-r-md absolute right-[1px] bottom-[1px] p-3 "/>
             </button>
           </div>
         </div>

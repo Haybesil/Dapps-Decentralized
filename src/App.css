@@ -2,3 +2,48 @@
   margin: 0;
   padding: 0;
 }
+
+.grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.key {
+  gap: 20px;
+}
+ 
+
+@media screen and (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .key {
+     gap: 3px;
+  }
+
+  .cancel {
+    top: 28%;
+    left: 75%;
+  }
+
+  .top {
+    position: relative;
+    bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .key {
+    gap: 5px;
+ }
+
+  .cancel {
+    top: 6%;
+    left: 94%;
+  }
+}
+
