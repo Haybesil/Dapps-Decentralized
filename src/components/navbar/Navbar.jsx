@@ -11,7 +11,7 @@ const Navbar = () => {
 
         <div className=" flex items-center gap-5">
           <div>
-            <FiSearch size="26" />
+            <FiSearch size="26" className=' hidden lg:block '/>
           </div>
 
           <div>
