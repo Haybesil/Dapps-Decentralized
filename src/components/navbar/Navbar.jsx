@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <>
-      <div className=" sticky flex pl-3 pr-12 lg:pr-40 items-center justify-between bg-black h-20 text-white border-b">
+      <div className=" sticky flex pl-3 pr-12 lg:pr-40 items-center lg:justify-between gap-[50px] bg-black h-20 text-white border-b px-[4vw]">
         <Link to='/' className=" text-lg font-semibold">Decentralized LaunchPad</Link>
 
         <div className=" flex items-center gap-5">
