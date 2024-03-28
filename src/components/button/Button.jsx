@@ -8,7 +8,7 @@ const Button = (props) => {
         <div>
           <FaWallet size="20" />
         </div>
-        <div className=" hidden lg:block">{props.title}</div>
+        <div className="hidden lg:block">{props.title}</div>
       </div>
     </>
   );

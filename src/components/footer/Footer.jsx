@@ -5,8 +5,8 @@ import '../../App.css'
 const Footer = () => {
   return (
     <>
-      <div className=" py-20 px-5 flex flex-col lg:flex-row gap-10 lg:gap-20 items-center">
-        <div className=" flex flex-col gap-5">
+      <div className=" py-20  flex flex-col lg:flex-row gap-10 lg:gap-20 items-center">
+        <div className=" pl-[10vw] flex flex-col gap-5">
           <div className=" text-4xl w-[300px] text-[#5142FC] font-semibold">
             Decentralized Launchpad
           </div>
