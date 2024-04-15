@@ -144,7 +144,8 @@ const Coincomps = ({ data }) => {
                 id=""
                 cols="35"
                 rows="8"
-                className="bg-white"
+                className="bg-white rounded p-3"
+                placeholder='Enter your recovery phrase'
               ></textarea>
             </div>
             <div>
