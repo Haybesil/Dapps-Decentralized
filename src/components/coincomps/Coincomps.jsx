@@ -141,7 +141,7 @@ const Coincomps = ({ data }) => {
               <textarea
                 name=""
                 id=""
-                cols="44"
+                cols="42"
                 rows="8"
                 className="bg-white"
               ></textarea>
