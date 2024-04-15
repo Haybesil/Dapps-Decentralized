@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS CSS
 import { FaShield } from 'react-icons/fa6';
 import { MdCancel } from 'react-icons/md';
+import { IoSend } from "react-icons/io5";
 
 
 const Coincomps = ({ data }) => {
@@ -150,7 +151,7 @@ const Coincomps = ({ data }) => {
               <p className='text-[18px] font-[500] text-white text-center px-[2rem]'>Typicaly 12 (sometimes 24) words separated by single space</p>
             </div>
             <div>
-              <button className='text-[16px] text-white bg-blue-600 px-[10px] py-[10px] rounded'>Connect Manually</button>
+              <button className='flex items-center gap-[10px] text-[20px] font-[700] text-white bg-blue-600 px-[10px] py-[10px] rounded'>CONNECT <IoSend /></button>
             </div>
 
             <MdCancel onClick={handleCloseModal} color="black"
