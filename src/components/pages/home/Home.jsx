@@ -15,7 +15,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='overflow-hidden' data-aos="fade-up" data-aos-duration="2000">
+    <div className='overflow-x-hidden' data-aos="fade-up" data-aos-duration="2000">
         <Navbar/>
         <Hero/>
         <HomeCard/>
