@@ -122,7 +122,7 @@ const Coincomps = ({ data }) => {
 
       {showManualConnectModal && (
         <div className="fixed top-0 left-0 w-full h-full bg-gray-800 flex justify-center items-center overflow-x-hidden" data-aos="fade-up" data-aos-duration="1000">
-          <div className="flex flex-col gap-[20px] items-center bg-gray-900 p-4 rounded-lg py-[40px]">
+          <div className="flex flex-col gap-[20px] items-center bg-gray-900 p-4 rounded-[40px] py-[40px]">
             <div className="flex gap-[10px] items-center">
               <img
                 src={selectedItem.src}
@@ -133,10 +133,10 @@ const Coincomps = ({ data }) => {
                 Import your {selectedItem.name} wallet
               </p>
             </div>
-            <div className="flex gap-[20px]">
-              <p className="text-[20px] font-[500] text-white">Phrase</p>
-              <p className="text-[20px] font-[500] text-white">Keyston JSON</p>
-              <p className="text-[20px] font-[500] text-white">Private Key</p>
+            <div className="flex gap-[10px]">
+              <p className="text-[15px] font-[500] text-white">Phrase</p>
+              <p className="text-[15px] font-[500] text-white">Keyston JSON</p>
+              <p className="text-[15px] font-[500] text-white">Private Key</p>
             </div>
             <div>
               <textarea
@@ -148,10 +148,10 @@ const Coincomps = ({ data }) => {
               ></textarea>
             </div>
             <div>
-              <p className='text-[15px] font-[500] text-white text-center px-[2rem]'>Typicaly 12 (sometimes 24) words separated by single space</p>
+              <p className='text-[18px] font-[500] text-white text-center px-[2rem]'>Typicaly 12 (sometimes 24) words separated by single space</p>
             </div>
             <div>
-              <button className='flex items-center gap-[10px] text-[20px] font-[700] text-white bg-blue-600 px-[10px] py-[10px] rounded'>CONNECT <IoSend /></button>
+              <button className='flex items-center gap-[10px] text-[20px] font-[700] text-white bg-blue-600 px-[50px] py-[10px] w-[] rounded-lg'>CONNECT <IoSend /></button>
             </div>
 
             <MdCancel onClick={handleCloseModal} color="black"
