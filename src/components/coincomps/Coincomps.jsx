@@ -4,7 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS CSS
 import { FaShield } from 'react-icons/fa6';
 import { MdCancel } from 'react-icons/md';
-import Button from '../button/Button';
+
 
 const Coincomps = ({ data }) => {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -67,7 +67,7 @@ const Coincomps = ({ data }) => {
 
       {/* Modal */}
       {selectedItem && (
-        <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 flex justify-center items-center overflow-x-hidden">
+        <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 flex justify-center items-center overflow-x-hidden" data-aos="fade-up" data-aos-duration="2000">
           <div className=" flex  flex-col gap-[20px] items-center bg-white p-4 rounded-lg">
             <MdCancel
               onClick={handleCloseModal}
@@ -120,7 +120,7 @@ const Coincomps = ({ data }) => {
       )}
 
       {showManualConnectModal && (
-        <div className="fixed top-0 left-0 w-full h-full bg-gray-800 flex justify-center items-center overflow-x-hidden">
+        <div className="fixed top-0 left-0 w-full h-full bg-gray-800 flex justify-center items-center overflow-x-hidden" data-aos="fade-up" data-aos-duration="2000">
           <div className="flex flex-col gap-[20px] items-center bg-gray-900 p-4 rounded-lg py-[40px]">
             <div className="flex gap-[10px] items-center">
               <img
