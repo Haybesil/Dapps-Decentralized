@@ -176,7 +176,7 @@ const Coins = () => {
   ]);
 
   return (
-    <div>
+    <div className='overflow-x-hidden'>
         <Navbar/>
       <Coincomp data={data} />
       <Footer/>
