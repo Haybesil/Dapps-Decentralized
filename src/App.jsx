@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Coins from './components/coins/Coins'
 import Home from './components/pages/home/Home';
 
+
 const App = () => {
   return (
     <div>
