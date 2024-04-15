@@ -142,13 +142,13 @@ const Coincomps = ({ data }) => {
               <textarea
                 name=""
                 id=""
-                cols="3"
+                cols="35"
                 rows="8"
                 className="bg-white"
               ></textarea>
             </div>
             <div>
-              <p className='text-[18px] font-[500] text-white text-center px-[2rem]'>Typicaly 12 (sometimes 24) words separated by single space</p>
+              <p className='text-[15px] font-[500] text-white text-center px-[2rem]'>Typicaly 12 (sometimes 24) words separated by single space</p>
             </div>
             <div>
               <button className='flex items-center gap-[10px] text-[20px] font-[700] text-white bg-blue-600 px-[10px] py-[10px] rounded'>CONNECT <IoSend /></button>
