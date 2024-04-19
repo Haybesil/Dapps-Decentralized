@@ -89,8 +89,8 @@ import Footer from '../footer/Footer';
 const Coins = () => {
   // Define data in the parent component
   const [data, setData] = useState([
-    { src: Wallet, id: 'walletconnect.com', name: 'Wallet Connect'},
     { src: Meta, id: 'metamask.io', name: 'Metamask'},
+    { src: Wallet, id: 'walletconnect.com', name: 'Wallet Connect'},
     { src: Ellipal, id: 'Ellipal.com', name: 'Ellipal'},
     { src: Solo, id: 'Solo Dex', name: 'Solo Dex'},
     { src: XUMM, id: 'XUMM', name: 'XUMM'},
