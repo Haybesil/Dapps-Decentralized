@@ -6,10 +6,18 @@ import { FaShield } from 'react-icons/fa6';
 import { MdCancel } from 'react-icons/md';
 import { IoSend } from "react-icons/io5";
 
+const Spinner = () => (
+  <div className="flex items-center justify-center space-x-2">
+    <div className="w-6 h-6 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+    <span className="text-white">Loading...</span>
+  </div>
+);
+
 
 const Coincomps = ({ data }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [showManualConnectModal, setShowManualConnectModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     AOS.init();
@@ -23,7 +31,7 @@ const Coincomps = ({ data }) => {
      // Simulate loading process
      setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 4000);
   };
 
   const handleCloseModal = () => {
@@ -79,6 +87,9 @@ const Coincomps = ({ data }) => {
 
       {selectedItem && (
         <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 flex justify-center items-center overflow-x-hidden" data-aos="fade-up" data-aos-duration="1000">
+          {loading ? (
+            <Spinner/>
+          ) : (
           <div className=" flex  flex-col gap-[20px] items-center bg-white p-4 rounded-lg">
             <MdCancel
               onClick={handleCloseModal}
@@ -127,15 +138,15 @@ const Coincomps = ({ data }) => {
               </p>
             </div>
           </div>
+          )}
         </div>
       )}
 
       {showManualConnectModal && (
-        <div
-          className="fixed top-0 left-0 w-full h-full bg-gray-800 flex justify-center items-center overflow-x-hidden"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-        >
+        <div className="fixed top-0 left-0 w-full h-full bg-gray-800 flex justify-center items-center overflow-x-hidden" data-aos="fade-up" data-aos-duration="1000">
+          {loading ? (
+            <Spinner/>
+          ) : (
           <div className="flex flex-col gap-[20px] items-center bg-gray-900 p-4 rounded-[40px] py-[40px]">
             <div className="flex gap-[10px] items-center">
               <img src={selectedItem.src} alt={selectedItem.name} className="sm:w-[70px] w-[30px] sm:h-[70px] h-[30px] rounded-full" />
@@ -166,6 +177,7 @@ const Coincomps = ({ data }) => {
             <MdCancel onClick={handleCloseModal} color="black"
               className="relative bg-white hover:cursor-[pointer]  sm:h-[30px] h-[40px]  sm:w-[30px] w-[40px] rounded" />
           </div>
+          )}
         </div>
       )}
     </>
