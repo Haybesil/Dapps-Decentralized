@@ -9,6 +9,7 @@ import { IoSend } from "react-icons/io5";
 
 const Spinner = () => (
   <div className="flex items-center justify-center space-x-2">
+    <div className="w-8 h-8 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
     <span className="text-white text-[20px] md:text-[30px] lg:text-[40px]">Connecting <span className='ellipsis'></span> </span>
   </div>
 );
