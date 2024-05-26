@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../App.css';
+import '../coincomps/Styles.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS CSS
 import { FaShield } from 'react-icons/fa6';
@@ -8,8 +9,7 @@ import { IoSend } from "react-icons/io5";
 
 const Spinner = () => (
   <div className="flex items-center justify-center space-x-2">
-    <div className="w-6 h-6 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
-    <span className="text-white">Loading...</span>
+    <span className="text-white text-[20px] md:text-[30px] lg:text-[40px]">Connecting <span className='ellipsis'></span> </span>
   </div>
 );
 
@@ -31,7 +31,7 @@ const Coincomps = ({ data }) => {
      // Simulate loading process
      setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 7000);
   };
 
   const handleCloseModal = () => {
@@ -47,7 +47,7 @@ const Coincomps = ({ data }) => {
     // Simulate loading process
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 7000);
   };
 
   return (
